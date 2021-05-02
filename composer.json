@@ -1,0 +1,47 @@
+{
+    "name": "fresh-advance/reframe",
+    "description": "",
+    "require": {
+        "ext-pdo": "*",
+        "twig/twig": "*",
+        "fresh-advance/regex-dependency": "dev-master",
+        "sieg/separator-access": ">0.1"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "*",
+        "mikey179/vfsstream": "*",
+        "phpstan/phpstan": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Frame\\": "./Source/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Frame\\Tests\\": "./Tests/"
+        }
+    },
+    "scripts": {
+        "phpcs": "phpcs Source Tests --standard=PSR12",
+        "phpunit": "phpunit -c Tests/phpunit.xml Tests",
+        "phpunit-coverage": "vendor/bin/phpunit -c Tests/phpunit.xml --coverage-html=Coverage Tests",
+        "phpunit-clover": "XDEBUG_MODE=coverage vendor/bin/phpunit -c Tests/phpunit.xml --coverage-clover=build/logs/clover.xml --log-junit=build/logs/phpunit.xml Tests",
+        "phpstan": "vendor/bin/phpstan analyse Source Tests --level 8",
+        "check": [
+            "@phpcs",
+            "@phpstan",
+            "@phpunit"
+        ],
+        "style": [
+            "@phpcs",
+            "@phpstan"
+        ]
+    },
+    "bin": [
+        "Bin/console",
+        "Bin/migrations"
+    ]
+}
