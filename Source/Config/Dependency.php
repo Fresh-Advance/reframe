@@ -17,7 +17,7 @@ class Dependency implements ConfigurationItemCollection
                     \Frame\Runtime\HttpSession\Request::getGlobals()
                 );
             }),
-            new Item('Router', function() {
+            new Item('Router', function () {
                 return new Container(new ExampleRoutes());
             }),
             new Item('Config/Environment', new Environment()),

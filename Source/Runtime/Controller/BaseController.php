@@ -4,6 +4,7 @@ namespace Frame\Runtime\Controller;
 
 use Frame\Affection\DependencyAware;
 
-class BaseController {
+class BaseController
+{
     use DependencyAware;
 }
